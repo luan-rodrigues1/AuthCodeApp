@@ -57,7 +57,7 @@ const EmailStep = ({ handleStep, email, setEmail }: { handleStep: (nextStep: num
                 setErrorMessage("");
                 }}
             />
-            {errorMessage && <Text style={styles.errorMessage}>{errorMessage}</Text>}
+            <Text style={[styles.errorMessage, !errorMessage && styles.errorMessageHidden]}>{errorMessage || " "}</Text>
         </View>
         <TouchableOpacity 
           style={[styles.button, isLoading && styles.buttonDisabled]}

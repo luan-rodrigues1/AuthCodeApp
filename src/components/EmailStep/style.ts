@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    gap: 40,
+    gap: 16,
   },
   input: {
     backgroundColor: '#18181F',
@@ -38,9 +38,11 @@ const styles = StyleSheet.create({
   },
   errorMessage: {
     color: '#FFB4AB',
-    fontSize: 12,
-    fontWeight: '400',
-    marginTop: 4,
+    fontSize: 14,
+    marginTop: 8,
+  },
+  errorMessageHidden: {
+    opacity: 0,
   }
 });
 
