@@ -7,6 +7,7 @@ import { useState } from "react";
 
 const ContainerForm = () => {
     const [step, setStep] = useState<number>(1);
+    const [email, setEmail] = useState<string>("");
 
     const handleStep = (selectedStep: number) => {
         setStep(selectedStep);
@@ -20,9 +21,9 @@ const ContainerForm = () => {
                 <Text style={styles.title}>Autenticação</Text>
                 <Text style={styles.subtitle}>{subtitle}</Text>
                 <View>
-                    {step === 1 && <EmailStep handleStep={handleStep} />}
-                    {step === 2 && <ReviewStep handleStep={handleStep} />}
-                    {step === 3 && <CodeStep handleStep={handleStep} />}
+                    {step === 1 && <EmailStep handleStep={handleStep} email={email} setEmail={setEmail} />}
+                    {step === 2 && <ReviewStep handleStep={handleStep} setEmail={setEmail} />}
+                    {step === 3 && <CodeStep handleStep={handleStep} email={email} setEmail={setEmail}/>}
                 </View>
             </View>
         </View>

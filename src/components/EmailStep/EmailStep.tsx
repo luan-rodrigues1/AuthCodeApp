@@ -1,17 +1,33 @@
-import { Text, View, TextInput, TouchableOpacity } from "react-native";
+import { Text, View, TextInput, TouchableOpacity, ActivityIndicator } from "react-native";
 import { useState } from "react";
 import styles from "./style";
+import { SendCodeBody } from "../../services/types";
+import { post } from "../../services/api";
 
-const EmailStep = ({ handleStep }: { handleStep: (nextStep: number) => void }) => {
-  const [email, setEmail] = useState<string>("");
+const EmailStep = ({ handleStep, email, setEmail }: { handleStep: (nextStep: number) => void, email: string,setEmail: React.Dispatch<React.SetStateAction<string>> }) => {
   const [errorMessage, setErrorMessage] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const validateEmail = (emailText: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(emailText);
   };
 
-  const handleEmailChange = () => {
+  const handleSendCode = async () => {
+    try {
+      setIsLoading(true);
+      await post<SendCodeBody>("/auth/send-code", { email });
+      handleStep(2);
+      setIsLoading(false);
+    } catch (error: any) {
+      console.error("Erro ao enviar email:", error);
+      setErrorMessage("Erro ao enviar código");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleEmailChange = async () => {
     if (!email.trim()) {
       setErrorMessage("Por favor, insira um email");
       return;
@@ -23,8 +39,7 @@ const EmailStep = ({ handleStep }: { handleStep: (nextStep: number) => void }) =
     }
 
     setErrorMessage("");
-    console.log("Email válido:", email);
-    handleStep(2);
+    handleSendCode();
   };
 
   return (
@@ -45,10 +60,15 @@ const EmailStep = ({ handleStep }: { handleStep: (nextStep: number) => void }) =
             {errorMessage && <Text style={styles.errorMessage}>{errorMessage}</Text>}
         </View>
         <TouchableOpacity 
-        style={styles.button}
-        onPress={handleEmailChange}
+          style={[styles.button, isLoading && styles.buttonDisabled]}
+          onPress={handleEmailChange}
+          disabled={isLoading}
         >
-        <Text style={styles.buttonText}>Continuar</Text>
+          {isLoading ? (
+            <ActivityIndicator color="#FFFFFF" />
+          ) : (
+            <Text style={styles.buttonText}>Continuar</Text>
+          )}
         </TouchableOpacity>
     </View>
   );

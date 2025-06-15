@@ -5,10 +5,16 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     codeContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
+        gap: 12,
+        marginBottom: 16,
+    },
+    code: {
         flexDirection: 'row',
         justifyContent: 'center',
-        width: '100%', 
-        marginBottom: 54
+        width: '100%',
     },
     codeInput: {
         width: 45,
@@ -21,6 +27,17 @@ const styles = StyleSheet.create({
         marginHorizontal: 5,
         color: '#FFFFFF',
     },
+    inputError: {
+        borderColor: '#FFB4AB',
+    },
+    errorMessage: {
+        color: '#FFB4AB',
+        fontSize: 14,
+        textAlign: 'center',
+    },
+    errorMessageHidden: {
+        opacity: 0,
+    },
     buttonContainer: {
         display: 'flex',
         flexDirection: 'column',
@@ -32,7 +49,10 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         padding: 16,
         alignItems: 'center',
-      },
+    },
+    buttonDisabled: {
+        opacity: 0.5,
+    },
     buttonText: {
         color: '#003545',
         fontSize: 16,

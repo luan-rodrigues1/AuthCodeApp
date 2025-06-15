@@ -25,7 +25,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#8AD0EF',
     borderRadius: 8,
     padding: 16,
-    alignItems: 'center',
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  buttonDisabled: {
+    opacity: 0.7,
   },
   buttonText: {
     color: '#003545',
