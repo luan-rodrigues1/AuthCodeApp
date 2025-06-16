@@ -8,7 +8,7 @@ Link para instalar o arquivo .APK:
 Esta é uma aplicação Full Stack, Acesse o Back-end através dos links abaixo: 
 
 Link do repositório GitHub:   
-➡️ [Ir para a documentação da API](https://github.com/luan-rodrigues1/AuthCodeApi?tab=readme-ov-file#documenta%C3%A7%C3%A3o-da-api)  
+➡️ [Ir para o repositório](https://github.com/luan-rodrigues1/AuthCodeApi)  
 
 Link da API em produção:  
 ➡️ https://authcode-api-77008956635.us-central1.run.app  
