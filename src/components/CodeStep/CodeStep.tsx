@@ -54,7 +54,7 @@ const CodeStep = ({ handleStep, email, setEmail }: { handleStep: (nextStep: numb
         } catch (error: any) {
             console.error("Erro ao enviar codigo:", error);
             
-            if (error?.status === 404) {
+            if (error?.status === 404 || error?.status === 400) {
                 setErrorMessage("Código inválido ou expirado");
             } else {
                 setErrorMessage("Erro ao verificar código. Por favor, tente novamente.");

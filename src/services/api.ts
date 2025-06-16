@@ -1,6 +1,7 @@
 import { ApiResponse, ApiError } from './types';
 
-const BASE_URL = 'http://10.0.2.2:8080';
+// const BASE_URL = 'http://10.0.2.2:8080';
+const BASE_URL = 'https://authcode-api-77008956635.us-central1.run.app';
 
 const handleResponse = async <T>(response: Response): Promise<ApiResponse<T>> => {
   if (!response.ok) {
