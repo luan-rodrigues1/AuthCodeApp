@@ -1,97 +1,125 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# AuthCodeApp
 
-# Getting Started
+Um aplicativo React Native para autenticação.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 📋 Pré-requisitos
 
-## Step 1: Start Metro
+Antes de começar, certifique-se de ter instalado:
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+- Node.js (versão 18 ou superior)
+- npm ou yarn
+- React Native CLI
+- Android Studio (para desenvolvimento Android)
+- Xcode (para desenvolvimento iOS - apenas macOS)
+- CocoaPods (para iOS)
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## 🚀 Instalação
 
-```sh
-# Using npm
+1. Clone o repositório:
+
+```bash
+git clone [URL_DO_REPOSITÓRIO]
+cd AuthCodeApp
+```
+
+2. Instale as dependências:
+
+```bash
+npm install
+# ou
+yarn install
+```
+
+3. Para iOS, instale os pods:
+
+```bash
+cd ios
+pod install
+cd ..
+```
+
+## 💻 Rodando Localmente
+
+### Desenvolvimento
+
+1. Inicie o Metro Bundler:
+
+```bash
 npm start
-
-# OR using Yarn
+# ou
 yarn start
 ```
 
-## Step 2: Build and run your app
+2. Em outro terminal, execute o aplicativo:
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+Para Android:
 
-### Android
-
-```sh
-# Using npm
+```bash
 npm run android
-
-# OR using Yarn
+# ou
 yarn android
 ```
 
-### iOS
+Para iOS:
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
+```bash
 npm run ios
-
-# OR using Yarn
+# ou
 yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## 📱 Build para Produção
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+### Android
 
-## Step 3: Modify your app
+1. Configure as variáveis de ambiente:
 
-Now that you have successfully run the app, let's make changes!
+   - Crie um arquivo `android/gradle.properties` com suas configurações de release
+   - Configure a keystore para assinatura do app
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+2. Gere o APK de release:
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+```bash
+cd android
+./gradlew assembleRelease
+```
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+O APK será gerado em: `android/app/build/outputs/apk/release/app-release.apk`
 
-## Congratulations! :tada:
+3. Para gerar um AAB (Android App Bundle):
 
-You've successfully run and modified your React Native App. :partying_face:
+```bash
+cd android
+./gradlew bundleRelease
+```
 
-### Now what?
+O AAB será gerado em: `android/app/build/outputs/bundle/release/app-release.aab`
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+### iOS
 
-# Troubleshooting
+1. Abra o projeto no Xcode:
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+```bash
+cd ios
+open AuthCodeApp.xcworkspace
+```
 
-# Learn More
+2. No Xcode:
 
-To learn more about React Native, take a look at the following resources:
+   - Selecione o dispositivo de destino
+   - Configure o certificado de distribuição
+   - Configure o perfil de provisionamento
+   - Selecione "Product > Archive"
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+3. Após o arquivo ser gerado:
+   - Clique em "Distribute App"
+   - Escolha o método de distribuição (App Store, Ad Hoc, etc.)
+   - Siga as instruções do assistente
+
+## 🔧 Scripts Disponíveis
+
+- `npm start` ou `yarn start`: Inicia o Metro Bundler
+- `npm run android` ou `yarn android`: Executa o app no Android
+- `npm run ios` ou `yarn ios`: Executa o app no iOS
+- `npm test` ou `yarn test`: Executa os testes
+- `npm run lint` ou `yarn lint`: Executa o linter
