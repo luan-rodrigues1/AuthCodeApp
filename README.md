@@ -1,17 +1,23 @@
 # AuthCodeApp
 
 Um aplicativo React Native para autenticação.  
-Esta é uma aplicação Full Stack.
 
-🔗 Acesse o back-end através dos links abaixo:
-- **Repositório GitHub:** [AuthCodeApi](https://github.com/luan-rodrigues1/AuthCodeApi)  
-- **API em produção:** [authcode-api](https://authcode-api-77008956635.us-central1.run.app)
+Link para instalar o arquivo .APK:  
+➡️ [Ir para o dowload](https://drive.google.com/file/d/1pQ2Snv4_sRhIW8Iexz9xvwUmsUKm92PN/view?usp=sharing)  
+
+Esta é uma aplicação Full Stack, Acesse o Back-end através dos links abaixo: 
+
+Link do repositório GitHub:   
+➡️ [Ir para a documentação da API](https://github.com/luan-rodrigues1/AuthCodeApi?tab=readme-ov-file#documenta%C3%A7%C3%A3o-da-api)  
+
+Link da API em produção:  
+➡️ https://authcode-api-77008956635.us-central1.run.app  
 
 ## 📋 Pré-requisitos
 
 Antes de começar, certifique-se de ter instalado:
 
-- Node.js (versão 18 ou superior)
+- Node.js
 - npm ou yarn
 - React Native CLI
 - Android Studio (para desenvolvimento Android)
